@@ -36,7 +36,7 @@
     <select>
       <option value='ar'>ar</option>
       <option value='bn-BD'>bn-BD</option>
-	  <option value='bn-IN'>bn-IN</option>
+      <option value='bn-IN'>bn-IN</option>
       <option value='de'>de</option>
       <option selected value='en'>en</option>
       <option value='es'>es</option>
@@ -55,6 +55,7 @@
       <option value='ro'>ro</option>
       <option value='ru-RU'>ru-RU</option>
       <option value='sq'>sq</option>
+      <option value='sv-SE'>sv-SE</option>
       <option value='te'>te</option>
       <option value='tr'>tr</option>
       <option value='zh-CN'>zh-CN</option>
@@ -82,11 +83,14 @@
         <li target="https://quality.mozilla.org/teams/web-qa/" data-choice-id="webqa">Web QA
           <div class="extra" data-l10n-id="webqa-extra"></div>
         </li>
-        <li target="https://quality.mozilla.org/teams/desktop-firefox/" data-choice-id="ffqa">Firefox QA
+        <li target="https://quality.mozilla.org/teams/firefoxqe/" data-choice-id="ffqa">Firefox QA
           <div class="extra" data-l10n-id="ffqa-extra"></div>
         </li>
         <li target="https://quality.mozilla.org/teams/thunderbird/" data-choice-id="tbqa">Thunderbird QA
           <div class="extra" data-l10n-id="thunderbirdqa-extra"></div>
+        </li>
+        <li target="https://oneanddone.mozilla.org/en-US/" data-choice-id="oneanddone">One and Done
+          <div class="extra" data-l10n-id="oneanddone-extra"></div>
         </li>
       </ul>
     </div>
@@ -117,7 +121,7 @@
         </li>
       </ul>
     </div>
-    
+
     <div class="group" id="ffqa">
       <span class="question" data-l10n-id="ffqa-intro"></span>
       <ul class="choices">
@@ -129,7 +133,7 @@
         </li>
       </ul>
     </div>
-    
+
     <div class="group" id="translate">
       <span class="question" data-l10n-id="translate-intro"></span>
       <ul class="choices">
@@ -175,7 +179,7 @@
     <div class="group" id="teach">
       <span class="question" data-l10n-id="teach-intro"></span>
       <ul class="choices">
-        <li target="https://webmaker.org/en-US/teach" data-choice-id="webmaker">Webmaker
+        <li target="https://webmaker.org/en-US/mentor" data-choice-id="webmaker">Webmaker
           <div class="extra" data-l10n-id="webmake-extra"></div>
         </li>
         <li target="https://goggles.webmaker.org/" data-choice-id="hackasaurus">Hackasaurus
@@ -210,7 +214,7 @@
         </li>
       </ul>
     </div>
-    
+
     <div class="group" id="cpp">
       <span class="question" data-l10n-id="cpp-intro"></span>
       <ul class="choices">
@@ -265,7 +269,7 @@
     <div class="group" id="js">
       <span class="question" data-l10n-id="js-intro"></span>
       <ul class="choices">
-        <li target="https://developer.mozilla.org/docs/Introduction" data-choice-id="ff-js">Firefox
+        <li next-group="ff-js">Firefox
           <div class="extra" data-l10n-id="js-ff-extra"></div>
         </li>
         <li target="https://wiki.mozilla.org/Mobile/Get_Involved" data-choice-id="firefox-mobile">Mobile Firefox
@@ -297,6 +301,9 @@
         </li>
         <li target="https://wiki.mozilla.org/Webdev/GetInvolved" data-choice-id="web-development">Web development
           <div class="extra" data-l10n-id="js-webdev-extra"></div>
+        </li>
+        <li target="https://github.com/mozilla/treeherder-ui/" data-choice-id="treeherder">Treeherder
+          <div class="extra" data-l10n-id="treeherder-extra"></div>
         </li>
         <li target="http://www.benmoskowitz.com/?p=527" data-choice-id="popcorn">Popcorn
           <div class="extra" data-l10n-id="js-popcorn-extra"></div>
@@ -355,6 +362,9 @@
         <li target="https://wiki.mozilla.org/ReleaseEngineering/Contribute" data-choice-id="releng-py">Release Engineering
           <div class="extra" data-l10n-id="py-releng-extra"></div>
         </li>
+        <li target="https://github.com/mozilla/treeherder-ui/" data-choice-id="treeherder">Treeherder
+          <div class="extra" data-l10n-id="treeherder-extra"></div>
+        </li>
       </ul>
     </div>
 
@@ -412,8 +422,10 @@
     <div class="group" id="ff-js">
       <span class="question" data-l10n-id="ff-js-intro"></span>
       <ul class="choices">
-        <li target="https://developer.mozilla.org/docs/Introduction" data-l10n-id="ff-js-ff" data-choice-id="general"></li>
-        <li target="https://wiki.mozilla.org/DevTools/GetInvolved" data-choice-id="developer-tools">Developer tools
+        <li target="https://developer.mozilla.org/docs/Introduction" data-choice-id="firefox">General Firefox work
+          <div class="extra" data-l10n-id="ff-js-ff"></div>
+        </li>
+        <li target="https://wiki.mozilla.org/DevTools/GetInvolved" data-choice-id="developer-tools">Developer Tools
           <div class="extra" data-l10n-id="ff-js-dev-extra"></div>
         </li>
         <li target="https://wiki.mozilla.org/Services/Sync#Get_Involved" data-choice-id="sync">Sync

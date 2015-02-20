@@ -42,12 +42,13 @@
         return curr;
     }
 
-    function updateLocation(choice) {
+    function updateLocation(currChoice) {
         $('#location').html('');
 
         var pastStack = '#!/';
         for (var i = 0; i < stack.length; i++) {
-            var l10nId = $('[next-group="' + stack[i] + '"]').first().children('span').first().attr('data-l10n-id');
+            var choice = $('[next-group="' + stack[i] + '"]').first();
+            var l10nId = choice.children('span').first().attr('data-l10n-id');
 
             pastStack += stack[i] + '/';
 
@@ -59,11 +60,13 @@
             if (stack[i] === 'progornoprog') {
                 newLink.text('~');
             } else {
-                if (document.webL10n.getReadyState() === 'complete') {
-                    //L10n has already loaded, so we'll just set the text
+                if (typeof l10nId === "undefined" && choice.text().trim().length > 0) {
+                    //For a few choices (see next-group="js") the contents are set in HTML, not using l10n
+                    newLink.text(choice.text().trim());
+                } else if (document.webL10n.getReadyState() === 'complete') {
                     newLink.text(document.webL10n.get(l10nId));
                 } else {
-                    //If it hasn't loaded, we'll se the data-l10n-id attribute and wait for L10n to load it
+                    //If L10n hasn't loaded, we'll se the data-l10n-id attribute and wait for L10n to set it
                     newLink.attr('data-l10n-id', l10nId);
                 }
             }
@@ -71,7 +74,7 @@
             $('#location').append(newLink).append(' / ');
         }
 
-        $('#location').append($('<span></span>').text($(choice).text().split('\n')[0].trim()));
+        $('#location').append($('<span></span>').text($(currChoice).text().split('\n')[0].trim()));
     }
 
     function updateCurrentChoice(lastIndex) {

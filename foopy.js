@@ -42,6 +42,38 @@
         return curr;
     }
 
+    function updateLocation(choice) {
+        $('#location').html('');
+
+        var pastStack = '#!/';
+        for (var i = 0; i < stack.length; i++) {
+            var l10nId = $('[next-group="' + stack[i] + '"]').first().children('span').first().attr('data-l10n-id');
+
+            pastStack += stack[i] + '/';
+
+            var newLink = $('<a></a>').attr('href', pastStack).click(function () {
+                window.location.href = $(this).attr('href');
+                window.location.reload(true);
+            });
+
+            if (stack[i] === 'progornoprog') {
+                newLink.text('~');
+            } else {
+                if (document.webL10n.getReadyState() === 'complete') {
+                    //L10n has already loaded, so we'll just set the text
+                    newLink.text(document.webL10n.get(l10nId));
+                } else {
+                    //If it hasn't loaded, we'll se the data-l10n-id attribute and wait for L10n to load it
+                    newLink.attr('data-l10n-id', l10nId);
+                }
+            }
+
+            $('#location').append(newLink).append(' / ');
+        }
+
+        $('#location').append($('<span></span>').text($(choice).text().split('\n')[0].trim()));
+    }
+
     function updateCurrentChoice(lastIndex) {
         var lastChoice = $('.choices li', groupNode)[choices[choices.length - 1][lastIndex]];
         var choice     = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
@@ -63,6 +95,7 @@
           button.addEventListener('click', trackExternalLink);
         }
         setLocationHashSuffix(getUIDAttribute(choice));
+        updateLocation(choice);
     }
 
     function nextChoice(ev) {

@@ -17,6 +17,15 @@ html {
     background-image: url("./bg.png");
 }
 
+#location {
+    float: left;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+    #location a {
+        color: #487dc3;
+    }
+
 #tabzilla {
     margin-right: 100px;
 }
